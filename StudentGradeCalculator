@@ -1,0 +1,54 @@
+// STUDENT GRADE CALCULATOR
+
+import java.util.Scanner;
+public class StudentGradeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter yor Name:");
+        String StudentName =sc.nextLine();
+
+        System.out.println("Enter the number of subjects:");
+        int numSubjects= sc.nextInt();
+
+        if (numSubjects <=0){
+            System.out.println("Enter a valid number of subjects !");
+            return;
+        }
+        int totalMarks = 0;
+        int maxMarksPerSubjects = 100;
+
+        for(int i=1; i<=numSubjects;i++){
+            System.out.println("Enter marks obtained in subject " + i + " (out of 100)");
+            int marks=sc.nextInt();
+
+            if (marks <0 || marks >maxMarksPerSubjects ){
+                System.out.println("Marks should be in the range of 0 to 100. Please enter a valid marks");
+            }
+            else{
+                totalMarks += marks;
+            }
+        }
+
+        int averagePercentage =  (totalMarks*100) /(numSubjects*100);
+        System.out.println("Total Marks :" +totalMarks);
+        System.out.println("Average Percentage :" +averagePercentage + "%");
+
+        if (averagePercentage >= 80){
+            System.out.println("GRADE A");
+        } else if (averagePercentage >= 60 ) {
+            System.out.println("GRADE B");
+        } else if (averagePercentage >= 40) {
+            System.out.println("GRADE C");
+        }
+        else{
+            System.out.println("GRADE F");
+        }
+
+
+        System.out.println("THANK YOU " + " " + StudentName);
+
+
+
+
+    }
+}
